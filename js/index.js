@@ -1,3 +1,5 @@
+var object = []
+
 var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
 var renderer = new THREE.WebGLRenderer({
@@ -64,7 +66,7 @@ var render = function() {
 render();
 
 loader = new THREE.PLYLoader();
-loader.load( './models/Lucy100k.ply', function ( geometry ) {
+loader.load( './models/cake_part01.ply', function ( geometry ) {
 
     geometry.computeVertexNormals();
 
@@ -75,7 +77,30 @@ loader.load( './models/Lucy100k.ply', function ( geometry ) {
     mesh.rotation.y += Math.PI;
 
     mesh.castShadow = true;
-    mesh.receiveShadow = true;
-
+    mesh.receiveShadow = true; 
+    mesh.scale.multiplyScalar( 1000 );   
+    object.push( mesh );
     scene.add( mesh );
+    var scaleMatrix = new THREE.Matrix4();
+    scaleMatrix.set(
+        0.455, -0.890, 0, 1.094,
+        0.890, 0.455, 0, 0.423,
+        0, 0, 1, 0.203,
+        0, 0, 0, 1
+        );
+                
+    var rotate = new THREE.Matrix4();
+    rotate.set(
+                1, 0, 0, 0,
+                0, 0, 1, 0,
+                0, -1, 0, 0,
+                0, 0, 0, 1
+                );
+
+    scaleMatrix = rotate.multiply( scaleMatrix )
+
+    mesh.geometry.applyMatrix(scaleMatrix);
+    mesh.geometry.verticesNeedUpdate = true;
 } );
+
+

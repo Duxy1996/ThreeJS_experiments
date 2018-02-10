@@ -25,6 +25,8 @@ scene.add(camera);
 var clock = new THREE.Clock();
 
 // orbit, pan, zoom controls
+
+
 controls = new THREE.OrbitControls(camera, renderer.domElement);
 controls.enableZoom = true;
 controls.addEventListener('change', function() {

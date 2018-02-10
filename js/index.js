@@ -18,7 +18,7 @@ renderer.setClearColor(0xffffff, 0.0);
 $('#editor').append(renderer.domElement);
 
 // camera
-camera.position.z = 15;
+camera.position.z = 50;
 camera.lookAt(new THREE.Vector3(0, 0, 0));
 scene.add(camera);
 
@@ -44,7 +44,6 @@ scene.add(light);
 
 this.onWindowResize = function(event) {
   camera.aspect = window.innerWidth / window.innerHeight;
-  camera.fov = (360 / Math.PI) * Math.atan(tanFOV * (window.innerHeight / windowHeight));
   camera.updateProjectionMatrix();
   camera.lookAt(scene.position);
   renderer.setSize(window.innerWidth, window.innerHeight);
@@ -66,10 +65,7 @@ var render = function() {
 render();
 
 var loader = new THREE.PLYLoader();
-var files = ['./models/cake_part01.ply', './models/cake_part02.ply', './models/cake_part03.ply',
-             './models/cake_part04.ply', './models/cake_part05.ply', './models/cake_part06.ply',
-             './models/cake_part07.ply', './models/cake_part08.ply', './models/cake_part09.ply',
-             './models/cake_part10.ply', './models/cake_part11.ply'];
+
 var matrices = [[ 0.4557367861270905, -0.890114426612854, 0, 1.094243168830872,
                   0.8901145458221436, 0.4557368457317352, 0, 0.4239174425601959,
                   0, 0, 1, 0.2033785432577133,
@@ -127,7 +123,7 @@ var w = [null, null, null, null, null, null, null, null, null, null];
 
 function startWorker() {
     var index = 0;
-    while(index <11){
+    while(index < 11){
       set_worker(index);
       index = index + 1;
     }

@@ -5,14 +5,38 @@
         <title>PLY viewer</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
         <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     </head>
     <body>
         <div id="editor"></div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+        <div id="inform"></br>
+            <div id="bdaText">
+                hola mundo
+            </div>
+            <div id="bdaText">
+                <ul>
+                    <li class="icons_column"><button type="button" onclick="allParts()" class="btn btn-primary">Todas las piezas</button></li>
+                    <li class="icons_column"><button type="button" onclick="goodParts()" class="btn btn-primary">Piezas no faltantes</button></li>
+                    <li class="icons_column"><button type="button" onclick="faltantParts()" class="btn btn-primary">Piezas faltantes</button></li>
+                </ul>
+            </div>
+        </div>
+        <div id="fixed-div-invisible">
 
+        </div>
+        <div id="fixed-div">
+            <ul>
+                <li class="icons_column"><i class="fas fa-camera-retro fa-5x"></i></li>
+                <li class="icons_column"><i class="fas fa-question-circle fa-5x"></i></li>
+            </ul>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
         <script type="text/javascript" src="./js/three.min.js"></script>
         <script type="text/javascript" src="./js/PLYLoader.js"></script>
         <script type="text/javascript" src="./js/OrbitControls.js"></script>
-        <script type="text/javascript" src="./js/index.js"></script>
+        <script type="text/javascript" src="./js/indexs.js"></script>
     </body>
 </html>

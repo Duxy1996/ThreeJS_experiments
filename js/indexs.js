@@ -215,7 +215,7 @@ renderer.domElement.addEventListener('mousedown', function(event) {
     scene.remove ( arrow );
     arrow = new THREE.ArrowHelper( raycaster.ray.direction, raycaster.ray.origin, 100, Math.random() * 0xffffff )
     scene.add( arrow );
-    intersects = raycaster.intersectObjects(pieces);
+    intersects = raycaster.intersectObjects(pieces.concat(faltants));
     if (intersects.length > 0) {
       if(selection !== null){
         selection.material = unselectedMAterial;
